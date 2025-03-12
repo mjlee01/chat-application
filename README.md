@@ -14,13 +14,13 @@ Before we start, ensure you have the following installed:
 
 ### **1. Fork & Clone the Repository**  
 
-1. Go to **GitHub Repository**
-2. Click **Fork** → Copy your forked repo URL.  
+1. Click **Fork** → Copy your forked repo URL.  
+2. Go to **GitHub Repository**
 3. Open a terminal and run:  
 
    ```
    git clone <your-forked-repo-url>
-   cd chat-app
+   cd chat-application
    npm install
    ```
   
