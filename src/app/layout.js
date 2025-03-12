@@ -35,25 +35,16 @@ export default function RootLayout({ children }) {
     };
 
     useEffect(() => {
-        const cookie = document.cookie;
-
-        if (!cookie) {
-            router.push('/');
-        } else {
-            if (cookie.includes('auth=')) {
-                const authToken = cookie
-                    .split(';')
-                    .find((c) => c.includes('auth'))
-                    .split('=')[1];
-                verifyAuth(authToken).then((res) => {
-                    if (res) {
-                        setUser(res.record);
-                        return true;
-                    }
-                });
-            } else {
-                router.push('/');
+        if (!pb.authStore.isValid) {
+            if (window.location.pathname !== '/') {
+                window.location.href = '/';
             }
+        } else {
+            pb.collection('users')
+                .authRefresh()
+                .then(() => {
+                    setUser(pb.authStore.user);
+                });
         }
     }, [setUser]);
     return (
