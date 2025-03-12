@@ -1,0 +1,22 @@
+@import "tailwindcss";
+@config "../../tailwind.config.js";
+
+@layer components {
+    .splide__pagination.splide__pagination-cards {
+        @apply static mt-2;
+    }
+    .splide__pagination.splide__pagination-crypto {
+        @apply -top-10 left-auto right-0 bottom-auto;
+    }
+    .splide__pagination .splide__pagination__page {
+        @apply mx-1 bg-purple-3;
+    }
+    .splide__pagination .splide__pagination__page.is-active {
+        @apply bg-purple-1 scale-100;
+    }
+}
+
+.btn-purple{
+  @apply btn bg-purple-1 text-n-1 fill-n-1 hover:bg-purple-200/90;
+} 
+
