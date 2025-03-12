@@ -37,10 +37,6 @@ Start the Next.js development server:
 
 
 ## **3. Set Up PocketBase**
-Download **PocketBase** → https://pocketbase.io/
-
-Extract the ZIP file.
-
 Open a terminal in the **PocketBase (backend) folder** and run:
 
  ```
