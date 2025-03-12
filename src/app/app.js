@@ -18,14 +18,6 @@ export default function App({ Component, pageProps }) {
                     font-family: ${roboto.style.fontFamily};
                 }
             `}</style>
-            <ColorModeProvider>
-                <ColorModeScript
-                    initialColorMode='system'
-                    key='chakra-ui-no-flash'
-                    storageKey='chakra-ui-color-mode'
-                />
-                <Component {...pageProps} />
-            </ColorModeProvider>
         </main>
     );
 }

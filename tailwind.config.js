@@ -247,34 +247,7 @@ module.exports = {
                     '@apply label border-n-1 bg-n-1 text-white dark:bg-white/10':
                         {},
                 },
-                '.table-custom': {
-                    '@apply table w-full border border-n-1 bg-white dark:bg-n-1 dark:border-white':
-                        {},
-                },
-                '.table-select': {
-                    '@apply table-custom [&>thead>tr>*:nth-child(2)]:pl-0 [&>thead>tr>*:nth-child(1)]:w-13 [&>thead>tr>*:nth-child(1)]:px-0 [&>thead>tr>*:nth-child(1)]:text-0 [&>thead>tr>*:nth-child(1)]:text-center [&>tbody>tr>*:nth-child(2)]:pl-0 [&>tbody>tr>*:nth-child(1)]:w-13 [&>tbody>tr>*:nth-child(1)]:px-0 [&>tbody>tr>*:nth-child(1)]:text-center [&>tbody>tr>*:nth-child(1)]:text-0':
-                        {},
-                },
-                '.th-custom': {
-                    '@apply table-cell h-12 px-3 py-2 align-middle text-left first:pl-5 last:pr-5':
-                        {},
-                },
-                '.td-custom': {
-                    '@apply table-cell h-[3.875rem] px-3 py-2.5 align-middle border-t border-n-1 text-sm first:pl-5 last:pr-5 dark:border-white':
-                        {},
-                },
-                '.card': {
-                    '@apply bg-white border border-n-1 dark:bg-n-1 dark:border-white':
-                        {},
-                },
-                '.card-head': {
-                    '@apply flex justify-between items-center min-h-[4rem] px-5 py-3 border-b border-n-1 dark:border-white':
-                        {},
-                },
-                '.card-title': {
-                    '@apply p-5 border-b border-n-1 text-h6 dark:border-white':
-                        {},
-                },
+                
                 '.icon-16': {
                     '@apply !w-4 !h-4': {},
                 },
