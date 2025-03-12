@@ -38,7 +38,6 @@ export default function RootLayout({ children }) {
         const cookie = document.cookie;
 
         if (!cookie) {
-            console.log('No cookie found');
             router.push('/');
         } else {
             if (cookie.includes('auth=')) {
@@ -46,7 +45,6 @@ export default function RootLayout({ children }) {
                     .split(';')
                     .find((c) => c.includes('auth'))
                     .split('=')[1];
-                console.log('cookie', authToken);
                 verifyAuth(authToken).then((res) => {
                     if (res) {
                         setUser(res.record);

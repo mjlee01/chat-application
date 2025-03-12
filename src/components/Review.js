@@ -80,7 +80,6 @@ const Review = ({ comments, likes, messageId, children }) => {
                 `http://localhost:3000/api/replies?messageId=${messageId}`
             );
             const data = await response.json();
-            console.log(data);
             setReplies(data);
         } catch (error) {
             console.error('Error fetching posts:', error);
@@ -118,7 +117,6 @@ const Review = ({ comments, likes, messageId, children }) => {
 
     useEffect(() => {
         if (isSubscribed.current) return; // Prevent duplicate subscriptions
-        console.log(3);
         isSubscribed.current = true;
         //Subscribe to real time messages
         const unsubscribe = pb.collection('replies').subscribe(
@@ -144,7 +142,6 @@ const Review = ({ comments, likes, messageId, children }) => {
     // Real-Time Likes Subscription
     useEffect(() => {
         if (isSubscribed.current) return; // Prevent duplicate subscriptions
-        console.log(4);
         isSubscribed.current = true;
 
         const unsubscribe = pb

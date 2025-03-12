@@ -8,7 +8,6 @@ export async function POST(request) {
         data.password,
     );
 
-    console.log('ss', authData);
     return Response.json(authData);
   }
   catch (e) {

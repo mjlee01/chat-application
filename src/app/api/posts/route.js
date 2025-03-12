@@ -19,7 +19,6 @@ export async function POST(request) {
   try {
     const post = await pb.collection('messages').create(data);
 
-    console.log('ss', post);
     return Response.json(post);
   }
   catch (e) {
