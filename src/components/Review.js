@@ -69,6 +69,7 @@ const Review = ({ comments, likes, messageId, children }) => {
             console.error('Error fetching likes:', error);
         }
     }, [messageId, userStore.id]);
+    
     useEffect(() => {
         fetchLikes();
         hasFetchedLikes.current = true;

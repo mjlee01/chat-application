@@ -6,7 +6,7 @@ import Checkbox from '@/components/Checkbox';
 
 const SignUp = ({ setIsSignUp }) => {
     //useState initialization
-
+    
     const [error, setError] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
 

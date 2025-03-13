@@ -7,8 +7,11 @@ import { useUserStore } from '@/store/store';
 import { useRouter } from 'next/navigation';
 
 const SignIn = () => {
-    //useState initialization
-
+    const [formData, setFormData] = useState({
+        email: '',
+        password: '',
+        rememberMe: false,
+    });
     const [error, setError] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -16,11 +19,12 @@ const SignIn = () => {
     const router = useRouter();
 
     const handleChange = (e) => {
-        // handleChange function
+        const { name, value } = e.target;
+        setFormData((prev) => ({ ...prev, [name]: value }));
     };
 
     const toggleRememberMe = () => {
-        //toggleRememberMe function
+        setFormData((prev) => ({ ...prev, rememberMe: !prev.rememberMe }));
     };
 
     const login = async (event) => {
@@ -74,11 +78,34 @@ const SignIn = () => {
 
             {error && <p className='text-red-500 mb-4'>{error}</p>}
 
-            {/* Email Field */}
-            {/* Password Field */}
+            <Field
+                className='mb-4.5'
+                label='Email'
+                name='email'
+                type='email'
+                placeholder='Enter your email'
+                icon='email'
+                value={formData.email}
+                onChange={handleChange}
+            />
+
+            <Field
+                className='mb-4.5'
+                label='Password'
+                name='password'
+                type='password'
+                placeholder='Enter your password'
+                icon='password'
+                value={formData.password}
+                onChange={handleChange}
+            />
 
             <div className='flex justify-between items-center mb-6.5'>
-                {/* Remember me checkbox */}
+                <Checkbox
+                    label='Remember me'
+                    value={formData.rememberMe}
+                    onChange={toggleRememberMe}
+                />
                 <button
                     type='button'
                     className='text-xs font-bold hover:text-purple-600'
