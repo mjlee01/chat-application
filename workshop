@@ -1,0 +1,10 @@
+src/
+├── app/               # The core Next.js app
+│   ├── registration/  # Authentication pages
+│   ├── chat/          # The chat page
+│   ├── api/           # Backend API for authentication & messages
+├── components/        # Reusable UI components
+├── lib/               # Helper functions (PocketBase connection)
+├── store/             # Global state management (User auth)
+├── public/            # Store images, avatar
+├── styles/            # Tailwind & global styles 
