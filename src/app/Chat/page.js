@@ -27,7 +27,7 @@ const ChatPage = ({ back, title }) => {
 
   const submitPost = async () => {
     //submit Post function
-    const response = await post("http://localhost:3000/api/posts", {
+    const response = await fetch("http://localhost:3000/api/posts", {
       method: "POST",
       body: JSON.stringify({
         content: value,
@@ -35,13 +35,17 @@ const ChatPage = ({ back, title }) => {
         user: userStore.id,
       }),
     });
-    setValue('');
+    if (!response.ok) {
+        throw new Error('Failed to submit post');
+      }
+    setValue("");
+    await fetchPosts();
   };
 
   //useEffect for Fetching Messages
   useEffect(() => {
     fetchPosts();
-  },[]);
+  }, []);
 
   // /useEffect for Real-Time Updates
   useEffect(() => {
@@ -113,16 +117,17 @@ const ChatPage = ({ back, title }) => {
 
         <div className="flex shrink-0 w-[30rem] 4xl:w-[14.75rem] gap-2 mb-6">
           {/* styling */}
-          <button>
+          <button className="btn-purple btn-medium grow">
             <Icon name="check" />
             <span>Start Chat</span>
           </button>
           {/* styling */}
-          <button>
-            <Icon name="email" />
+          <button className="btn-purple btn-medium btn-square shrink-0">
+            <Icon name="email"  />
           </button>
           <button
             // styling
+            className="btn-purple btn-medium btn-square shrink-0"
             onClick={() => {
               pb.realtime.unsubscribe();
               pb.authStore.clear();
@@ -135,7 +140,17 @@ const ChatPage = ({ back, title }) => {
 
         {/* CHAT INPUT */}
         <div className="flex lg:flex-col-reverse">
-          <div className="flex-grow mr-30">{/* Comment section  */}</div>
+          <div className="flex-grow mr-30">
+            {/* Comment section  */}
+            <Comment
+              avatar={'/images/avatars/avatar.jpeg'}
+              placeholder="Type to add something"
+              value={value}
+              setValue={(e) => setValue(e.target.value)}
+              posts={posts}
+              submitFunc={submitPost}
+            />
+          </div>
         </div>
       </div>
     </div>
